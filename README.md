@@ -4,8 +4,7 @@
 
 **Šta je GraphQL biblioteke i čemu ona služi?**
 
-![](rm/media/image1.png){width="6.041666666666667in"
-height="2.379166666666667in"}Neo4j biblioteka GraphQL je fleksibilna
+![](rm/media/image1.png)Neo4j biblioteka GraphQL je fleksibilna
 JavaScript biblioteka otvorenog koda i ona služi za kreiranje,
 manipulaciju i kao jezik za upite API-ja. Umjesto da definišu mnoge
 krajnje tačke (endpoints) i da podatke vraća svaka od tih krajnjih
@@ -21,8 +20,7 @@ podaci aplikacije tretiraju kao graf, počevši izvorno od frontend-a pa
 sve do skladištenja, čime se izbjegavaju duplikati šema i obezbježuje se
 bolja integracija između frontenda i bekenda naše aplikacije.
 
-![](rm/media/image3.png){width="5.543055555555555in"
-height="3.625in"}Kada damo Neo4j GraphQL biblioteci skup definicija
+![](rm/media/image3.png)Kada damo Neo4j GraphQL biblioteci skup definicija
 tipova koje opisuju podatke našeg grafa, ona može da generiše cijelu
 izvršnu šemu sa svim dodatnim tipovima potrebnim za izvršavanje upita i
 mutacija za interakciju sa našom Neo4j bazom podataka. Za svaki upit i
@@ -59,9 +57,7 @@ implementiraju na bilo kom jeziku, za definisanje GraphQL tipova koristi
 se jezički nezavisna GraphQL šema za definisanje jezika.
 
 Mi pravimo jednostavnu aplikaciju za preporučivanje filmova
-korisnicima.![](rm/media/image4.png){width="6.38125in"
-height="3.3819444444444446in"}![](rm/media/image5.png){width="3.7868055555555555in"
-height="1.3770833333333334in"}
+korisnicima.![](rm/media/image4.png)![](rm/media/image5.png)
 
 Naše definicije GraphQL tipova deklarišu tipove koji se koriste u
 API-ju, njihova polja i način na koji su oni povezani. Prilikom
@@ -76,8 +72,7 @@ Ispostavlja se da smo mi zapravo definisali graf koristeći definicije
 tipova. Naši objekti su sada čvorovi grafa, a veze između tih čvorova su
 veze koje smo naveli u definiciji tipova.
 
-![](rm/media/image6.jpeg){width="6.041666666666667in"
-height="3.111111111111111in"}Grafovi se odnose na opisivanje povezanih
+![](rm/media/image6.jpeg)Grafovi se odnose na opisivanje povezanih
 podataka, a ovdje smo definisali kako su naši filmovi i glumci povezani
 u grafu. GraphQL nam omogućava da modeliramo podatke aplikacije kao graf
 i prelazimo preko grafova podataka kroz GraphQL operacije.
@@ -98,8 +93,7 @@ Kako nam je cilj da napravimo aplikaciju koja komunicira s Neo4j bazom
 podataka, mi možemo da koristimo drajver za Neo4j. Klijenski drajveri su
 dostupni u mnogo jezika (Java, Python, .Net, JavaScript, Go, itd).
 
-![](rm/media/image8.jpeg){width="3.2805555555555554in"
-height="2.071527777777778in"}Kako ove podatke unosimo više puta
+![](rm/media/image8.jpeg)Kako ove podatke unosimo više puta
 konekcioni URL, korisničko ime i šifru baze koju koristimo postavimo za
 promjenjive okruženja (environment variables) tako što napravimo .env
 fajl, definišemo varijable, te ih dalje koristimo u svojoj aplikaciji.
@@ -122,8 +116,7 @@ Naša aplikacija za filmove ima tri osnovne funkcije:
 3.  Prikazuje korisniku listu filmova koji su preporučeni korisniku,
     odnosno listu filmova koji su slični filmu koji je on izabrao.
 
-![](rm/media/image10.png){width="5.899305555555555in"
-height="4.486805555555556in"}
+![](rm/media/image10.png)
 
 **Neo4j baza podataka i preporučivanju filmova**
 
@@ -143,11 +136,9 @@ IN_GENRE, DIRECTED, ACTED_IN, RATED su veze koje koristimo.
 
 Title, name, year, rating su neki od atributa koje koristimo.
 
-![](rm/media/image11.png){width="6.041666666666667in"
-height="3.654861111111111in"}
+![](rm/media/image11.png)
 
-![](rm/media/image13.tif){width="3.188888888888889in"
-height="3.002083333333333in"}
+![](rm/media/image13.tif)
 
 **Preporuke**
 
@@ -164,14 +155,12 @@ grafova za generisanje preporuka uključuju:
     da je preporuka uvijek relevantna i da odražava najnovije
     informacije.
 
-    ![](rm/media/image15.tif){width="5.091666666666667in"
-    height="5.0055555555555555in"}Model podataka - Model grafa
+    ![](rm/media/image15.tif)Model podataka - Model grafa
     obilježenih svojstava omogućava lako kombinovanje skupova podataka
     iz više izvora. Grafovi na jasan način predstavljaju složene,
     međusobno povezane informacije, kao i odnose unutar njih.
     Modelovanje podataka grafovima je jednostavno i
-    efektivno.![](rm/media/image19.tif){width="6.042361111111111in"
-    height="2.066666666666667in"}
+    efektivno.![](rm/media/image19.tif)
 
 MATCH (m:Movie {title:'Inception'}) -
 \[:IN_GENRE\|:DIRECTED\|:ACTED_IN\]-(overlap) -
@@ -185,11 +174,9 @@ Cypher upit za preporučivanje filmova
 
 **Podešavanje servera za GraphQL**
 
-![](rm/media/image20.png){width="5.848611111111111in"
-height="2.286111111111111in"}Dešinišemo šemu tako što definišemo svaki
+![](rm/media/image20.png)Definišemo šemu tako što definišemo svaki
 od tipova koji koristimo u GraphQL-u i njihove međusobne
-veze.![](rm/media/image21.png){width="6.041666666666667in"
-height="2.30625in"}
+veze.![](rm/media/image21.png)
 
 Zatim uvozimo tu šemu, i koristimo env. varijable koje smo prethodno
 postavili u .env fajl za pravljenje neo4j drajvera, koji služi za
@@ -206,12 +193,10 @@ Play.
 
 **Korištenje GraphQL-a sa React-om**
 
-![](rm/media/image22.png){width="6.778472222222222in"
-height="4.975694444444445in"}Na početku je potrebno da uvezemo funkcije
+![](rm/media/image22.png)Na početku je potrebno da uvezemo funkcije
 useQuery, gql iz biblioteke \@apollo/client.
 
-![](rm/media/image24.png){width="3.953472222222222in"
-height="0.29930555555555555in"}Funkcija gql pretvara naš string u upit,
+![](rm/media/image24.png)Funkcija gql pretvara naš string u upit,
 a funkcija useQuery pokreće taj upit i vraća tri informacije. Te
 informacije su rezultat izvršavanje upita, informaciju da li se upit još
 izvršava i informaciju da li je došlo do greški, i ako jeste vraća
