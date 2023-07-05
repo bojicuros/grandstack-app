@@ -57,7 +57,7 @@ implementiraju na bilo kom jeziku, za definisanje GraphQL tipova koristi
 se jezički nezavisna GraphQL šema za definisanje jezika.
 
 Mi pravimo jednostavnu aplikaciju za preporučivanje filmova
-korisnicima.![](rm/media/image4.png)![](rm/media/image5.png)
+korisnicima.![](rm/media/image4.png)
 
 Naše definicije GraphQL tipova deklarišu tipove koji se koriste u
 API-ju, njihova polja i način na koji su oni povezani. Prilikom
