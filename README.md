@@ -74,7 +74,7 @@ Ispostavlja se da smo mi zapravo definisali graf koristeći definicije
 tipova. Naši objekti su sada čvorovi grafa, a veze između tih čvorova su
 veze koje smo naveli u definiciji tipova.
 
-![](rm/media/image7.jpeg)Grafovi se odnose na opisivanje povezanih
+![](rm/media/image7.png)Grafovi se odnose na opisivanje povezanih
 podataka, a ovdje smo definisali kako su naši filmovi i glumci povezani
 u grafu. GraphQL nam omogućava da modeliramo podatke aplikacije kao graf
 i prelazimo preko grafova podataka kroz GraphQL operacije.
@@ -85,13 +85,13 @@ počinjemo od ulazne tačke polja upita allMovies i prelazimo kroz graf da
 bismo pronašli glumce povezane sa svakim filmom. Zatim, za svakog od
 ovih glumaca prolazimo kroz sve ostale filmove s kojima su povezani.
 
-![](rm/media/image8.jpeg)
+![](rm/media/image8.png)
 
 Primijetimo da je naš upit ugniježđen i opisuje kako se prolazi kroz
 graf povezanih objekata (u ovom slučaju, filmova i glumaca). Ovo
 obilaženje možemo predstaviti preko grafa podataka.
 
-![](rm/media/image9.jpeg)
+![](rm/media/image9.png)
 
 **Detaljnije o aplikaciji**
 
@@ -99,7 +99,7 @@ Kako nam je cilj da napravimo aplikaciju koja komunicira s Neo4j bazom
 podataka, mi možemo da koristimo drajver za Neo4j. Klijenski drajveri su
 dostupni u mnogo jezika (Java, Python, .Net, JavaScript, Go, itd).
 
-![](rm/media/image10.jpeg)Kako ove podatke unosimo više puta
+![](rm/media/image10.png)Kako ove podatke unosimo više puta
 konekcioni URL, korisničko ime i šifru baze koju koristimo postavimo za
 promjenjive okruženja (environment variables) tako što napravimo .env
 fajl, definišemo varijable, te ih dalje koristimo u svojoj aplikaciji.
@@ -111,8 +111,8 @@ NEO4J_USER=neo4j
 NEO4J_PASSWORD=reels-vicinities-quota
 
 Zahtjev pretrage kroz našu full stack GraphQL aplikaciju
-![](rm/media/image11.jpeg)
-![](rm/media/image12.jpeg)
+![](rm/media/image11.png)
+![](rm/media/image12.png)
 
 Naša aplikacija za filmove ima tri osnovne funkcije:
 
@@ -126,7 +126,6 @@ Naša aplikacija za filmove ima tri osnovne funkcije:
 3.  Prikazuje korisniku listu filmova koji su preporučeni korisniku,
     odnosno listu filmova koji su slični filmu koji je on izabrao.
 
-![](rm/media/image10.png)
 
 **Neo4j baza podataka i preporučivanju filmova**
 
