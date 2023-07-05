@@ -59,6 +59,8 @@ se jezički nezavisna GraphQL šema za definisanje jezika.
 Mi pravimo jednostavnu aplikaciju za preporučivanje filmova
 korisnicima.![](rm/media/image4.png)
 
+![](rm/media/image6.png)
+
 Naše definicije GraphQL tipova deklarišu tipove koji se koriste u
 API-ju, njihova polja i način na koji su oni povezani. Prilikom
 definisanja tipa objekta (kao što je Movie), sva polja dostupna na
@@ -72,7 +74,7 @@ Ispostavlja se da smo mi zapravo definisali graf koristeći definicije
 tipova. Naši objekti su sada čvorovi grafa, a veze između tih čvorova su
 veze koje smo naveli u definiciji tipova.
 
-![](rm/media/image6.jpeg)Grafovi se odnose na opisivanje povezanih
+![](rm/media/image7.jpeg)Grafovi se odnose na opisivanje povezanih
 podataka, a ovdje smo definisali kako su naši filmovi i glumci povezani
 u grafu. GraphQL nam omogućava da modeliramo podatke aplikacije kao graf
 i prelazimo preko grafova podataka kroz GraphQL operacije.
@@ -83,9 +85,13 @@ počinjemo od ulazne tačke polja upita allMovies i prelazimo kroz graf da
 bismo pronašli glumce povezane sa svakim filmom. Zatim, za svakog od
 ovih glumaca prolazimo kroz sve ostale filmove s kojima su povezani.
 
+![](rm/media/image8.jpeg)
+
 Primijetimo da je naš upit ugniježđen i opisuje kako se prolazi kroz
 graf povezanih objekata (u ovom slučaju, filmova i glumaca). Ovo
 obilaženje možemo predstaviti preko grafa podataka.
+
+![](rm/media/image9.jpeg)
 
 **Detaljnije o aplikaciji**
 
@@ -93,7 +99,7 @@ Kako nam je cilj da napravimo aplikaciju koja komunicira s Neo4j bazom
 podataka, mi možemo da koristimo drajver za Neo4j. Klijenski drajveri su
 dostupni u mnogo jezika (Java, Python, .Net, JavaScript, Go, itd).
 
-![](rm/media/image8.jpeg)Kako ove podatke unosimo više puta
+![](rm/media/image10.jpeg)Kako ove podatke unosimo više puta
 konekcioni URL, korisničko ime i šifru baze koju koristimo postavimo za
 promjenjive okruženja (environment variables) tako što napravimo .env
 fajl, definišemo varijable, te ih dalje koristimo u svojoj aplikaciji.
@@ -103,6 +109,10 @@ NEO4J_URI=bolt://44.201.146.208:7687
 NEO4J_USER=neo4j
 
 NEO4J_PASSWORD=reels-vicinities-quota
+
+Zahtjev pretrage kroz našu full stack GraphQL aplikaciju
+![](rm/media/image11.jpeg)
+![](rm/media/image12.jpeg)
 
 Naša aplikacija za filmove ima tri osnovne funkcije:
 
@@ -136,9 +146,14 @@ IN_GENRE, DIRECTED, ACTED_IN, RATED su veze koje koristimo.
 
 Title, name, year, rating su neki od atributa koje koristimo.
 
-![](rm/media/image11.png)
-
 ![](rm/media/image13.tif)
+
+![](rm/media/image14.png)
+
+![](rm/media/image15.png)
+
+![](rm/media/image16.png)
+
 
 **Preporuke**
 
@@ -155,52 +170,51 @@ grafova za generisanje preporuka uključuju:
     da je preporuka uvijek relevantna i da odražava najnovije
     informacije.
 
-    ![](rm/media/image15.tif)Model podataka - Model grafa
+-   Model podataka - Model grafa
     obilježenih svojstava omogućava lako kombinovanje skupova podataka
     iz više izvora. Grafovi na jasan način predstavljaju složene,
     međusobno povezane informacije, kao i odnose unutar njih.
     Modelovanje podataka grafovima je jednostavno i
-    efektivno.![](rm/media/image19.tif)
+    efektivno.
 
-MATCH (m:Movie {title:'Inception'}) -
-\[:IN_GENRE\|:DIRECTED\|:ACTED_IN\]-(overlap) -
-\[:IN_GENRE\|:DIRECTED\|:ACTED_IN\] - (rec:Movie)
+![](rm/media/image17.png)
 
-WITH rec, COUNT (overlap) AS score
+![](rm/media/image18.png)
 
-RETURN rec ORDER BY score DESC LIMIT 4
-
-Cypher upit za preporučivanje filmova
 
 **Podešavanje servera za GraphQL**
 
 ![](rm/media/image20.png)Definišemo šemu tako što definišemo svaki
 od tipova koji koristimo u GraphQL-u i njihove međusobne
-veze.![](rm/media/image21.png)
+veze.![](rm/media/image19.png)
 
 Zatim uvozimo tu šemu, i koristimo env. varijable koje smo prethodno
 postavili u .env fajl za pravljenje neo4j drajvera, koji služi za
-konekciju sa našom bazom podataka.
+konekciju sa našom bazom podataka.![](rm/media/image20.png)
 
 Poslije čega na uz pomoć našeg drajvera i šeme pravimo server, tako što
 navodimo određeni port na kojom će server da se izvršava. U ovom slučaju
 biramo port 4003.
+
+![](rm/media/image21.png)
 
 Ukoliko sada pokrenemo server, na linku <http://localhost:4003/graphql>
 nam se otvara razvojno okruženje gdje možemo da vidimo definisanu šemu,
 odnosno tipove i da izvršavamo GraphQL upite klikom na dugme za oznakom
 Play.
 
+![](rm/media/image22.png)
+
 **Korištenje GraphQL-a sa React-om**
 
-![](rm/media/image22.png)Na početku je potrebno da uvezemo funkcije
+Na početku je potrebno da uvezemo funkcije
 useQuery, gql iz biblioteke \@apollo/client.
 
-![](rm/media/image24.png)Funkcija gql pretvara naš string u upit,
+Funkcija gql pretvara naš string u upit,
 a funkcija useQuery pokreće taj upit i vraća tri informacije. Te
 informacije su rezultat izvršavanje upita, informaciju da li se upit još
-izvršava i informaciju da li je došlo do greški, i ako jeste vraća
-informaciju o vrsti greške.
+izvršava i informaciju da li je došlo do greške, i ako jeste vraća
+informaciju o vrsti greške.![](rm/media/image23.png)
 
 Sada u zavisnosti od dobijenih podataka, generišemo sadržaj stranice.
 Ukoliko se još vrši izvršavanje upita prikazujemo Loading, a ukoliko je
