@@ -4,7 +4,7 @@
 
 **Šta je GraphQL biblioteke i čemu ona služi?**
 
-![](rm/media/image1.png)Neo4j biblioteka GraphQL je fleksibilna
+![](rm/media/image1.png)![](rm/media/image2.png)Neo4j biblioteka GraphQL je fleksibilna
 JavaScript biblioteka otvorenog koda i ona služi za kreiranje,
 manipulaciju i kao jezik za upite API-ja. Umjesto da definišu mnoge
 krajnje tačke (endpoints) i da podatke vraća svaka od tih krajnjih
